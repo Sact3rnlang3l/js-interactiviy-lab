@@ -1,5 +1,7 @@
 console.log('Hi')
 
+let message = document.querySelector('#message')
+
 function addMovie(event){
     event.preventDefault()
  let inputField = document.querySelector('input')
@@ -23,10 +25,18 @@ function addMovie(event){
 
 function deleteMovie(event){
    event.target.parentNode.remove()
+    message.textContent = 'Movie Deleted'
+    // revealMessage()
 }
 
 function crossOffMovie(event){
- event.target.classList.toggle('checked')
+ event.target.classList.toggle('checked');
+ if(event.target.classList.contains('checked')){
+    message.textContent = 'Watched'
+ }else{
+    message.textContent = 'Added back'
+ }
 }
+
 document.querySelector('form').addEventListener('submit', addMovie)
 
